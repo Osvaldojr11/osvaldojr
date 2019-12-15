@@ -1,0 +1,83 @@
+<html lang="pt-BR">
+<head>
+    <title>Relatório</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="description">
+
+    
+  <link rel="stylesheet" href="static/css/style.css"/>
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <script src="static/js/jquery-3.3.1.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <meta property="og:title" content="Jigsaw Puzzle | custarddoughnuts" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A jigsaw puzzle made in HTML5 canvas." />
+    <meta property="og:url" content="http://custarddoughnuts.co.uk/jigsaw/" />
+    <meta property="og:image" content="http://www.custarddoughnuts.co.uk/public/img/cd.png" />
+</head>
+<body style="background-image:url(static/img/BG.png);overflow-y:hidden">
+<center>
+	<div class="container" style="background:white;margin-top:20px;border-radius:9px;box-shadow: 5px 5px 10px black;-webkit-box-shadow: 0px 0px 0.6em black;-moz-box-shadow: 0px 0px 0.6em black;">
+	  <h2>Relatório dos jogos</h2>
+	  <p>Aqui será analisado o desenvolvimento da criança:</p>                                          
+	<hr style="width:99.8%;border-color:gray;"></hr>
+	<div style="overflow-y:auto;height:400px;margin-top:-5px">
+		 <table class="table table-striped table-bordered table-hover table-condensed">
+			<thead>
+			 <tr>
+				<th><b>Nome</b></th>
+				<th><b>Idade</b></th>
+				<th><b>Tipo de deficiência</b></th>
+				<th><b>Diagnóstico\ principais características</b></th>
+				<th><b>vezes jogadas</b></th>
+				<th><b>Data do jogo</b></th>
+				<th><b>Tempo de jogo (segundos)</b></th>
+				<th><b>Dificuldade do jogo</b></th>
+				<th><b>Quantidade de peças(linhas x colunas)</b></th>
+			 </tr>
+			</thead>
+			<tbody id="relatorio_crianca">
+
+			</tbody>
+		  </table>
+		  </div>
+		  <hr style="width:99.8%;border-color: gray;"></hr>
+		<a href="jogo.html" class="btn btn-block">Voltar</a>
+		<br>
+	</div>
+</center>
+<br>
+<script>
+	//relatorio crianca
+	$('#relatorio_crianca').empty();
+	$.ajax({
+		type:'POST',		//Definimos o método HTTP usado
+		dataType: 'json',	//Definimos o tipo de retorno
+		url: 'php/relatorio.php', //Definindo o arquivo onde serão buscados os dados
+		success: function(data){
+				for(var i=0;data.length>i;i++){
+				    //Adicionando registros retornados na tabela
+					$('#relatorio_crianca').append("<tr>"+
+														"<td>"+data[i].nome+"</td>"+
+														"<td>"+data[i].idade+"</td>"+
+														"<td>"+data[i].tipo_deficiencia+"</td>"+
+														"<td>"+data[i].anotacoes+"</td>"+
+														"<td>"+data[i].num_jogos+"</td>"+
+														"<td>"+data[i].data_jogo+"</td>"+
+														"<td>"+data[i].tempo_segundos+" s</td>"+
+														"<td>"+data[i].dificuldade+"</td>"+
+														"<td>"+data[i].num_pecas+"</td>"+
+													"</tr>");
+			
+				}
+			
+		}
+	});
+</script>
+</body>
+</html>

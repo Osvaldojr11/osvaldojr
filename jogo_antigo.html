@@ -1,0 +1,104 @@
+<html lang="pt-BR" id="site" class="nojs">
+<head>
+    <!--[if lt IE 9]>
+    <script src="/public/js/vendor/html5shiv.js"></script>
+    <![endif]-->
+    <title>Jogo Quebra-Cabeça</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="description">
+
+    
+	<link rel="stylesheet" href="static/css/style.css"/>
+	
+
+
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <meta property="og:title" content="Jigsaw Puzzle | custarddoughnuts" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A jigsaw puzzle made in HTML5 canvas." />
+    <meta property="og:url" content="http://custarddoughnuts.co.uk/jigsaw/" />
+    <meta property="og:image" content="http://www.custarddoughnuts.co.uk/public/img/cd.png" />
+</head>
+
+<body id="body">
+
+
+
+
+	
+    <div class="canvaswrapper" id="canvasparent">
+	   	<canvas id="canvas" class="canvas"></canvas>
+    </div>
+    
+    <div class="optionstrigger" id="showoptions"><img src="static/img/cog.png"/></div>
+	
+
+    <div id="options" class="optionswrapper">
+       <div class="mask" id="hideoptions"></div>
+		<div class="options"style="background:white;width:450px;height:400px;border-radius:9px;margin-top:100px;box-shadow: 5px 5px 10px black;-webkit-box-shadow: 0px 0px 0.6em black;-moz-box-shadow: 0px 0px 0.6em black;>
+            <h1 class="h3 align-center">Menu de Configurações</h1>
+			
+        	<label>Número de linhas: </label>
+				<input type="range" id="piecesx" name="piecesx" min="1" max="20" oninput="document.getElementById('fPrince').innerHTML = this.value"/>
+			<label id="fPrince"></label>
+    		
+    		<label>
+    			Número de colunas: <input type="number" id="piecesy" name="piecesy" min="1" max="20" style="border-radius: 3px"/>
+    		</label>
+			<label>
+    			Grau de dificuldade: 
+				<select id="nivel" name="nivel" style="border-radius: 3px">
+					<option value="D">Dificil</option>
+					<option value="N">Normal</option>
+					<option value="F">Facíl</option>
+					<option value="MF" selected>Muito Facíl</option>
+				</select>
+    		</label>
+			<label>
+    			Exibir imagem temporária:
+				<select name="tempFeedback" id="tempFeedback" style="border-radius: 3px" type="select">
+					<option value="0" selected>Não Exibir </option>
+					<option value="5">5 segundos</option>
+					<option value="10">10 segundos</option>
+					<option value="15">15 segundos</option>
+					<option value="20">20 segundos</option>
+					<option value="30">30 segundos</option>
+				</select>
+			</label>
+			<label>
+				Exibir imagem em marca d'agua: 
+				<select type="select" name="imgFundo" id="imgFundo" style="border-radius: 3px">
+				<option value="0" selected>Não</option>
+				<option value="1">Sim</option>
+				</select>
+
+			</label>
+			<label>
+				Selecionar Imagem :
+				<select name="selImg" id="selImg" style="border-radius: 3px">
+					<option value="1">Tema Kids</option>
+					<option value="2">Tema Puzzle</option>
+					<option value="3">Tema Criança</option>
+					<option value="4">Tema Idoso</option>
+				</select>
+			</label>
+    		<label>
+    			Carregar imagem: <input style="margin-top:-18px; border-radius: 7px" type="file" id="fileupload"/>
+    		</label>
+			<button type="submit" id="updatePuzzle" style="border-radius: 7px" class="btn btn-block">Jogar</button>
+    		<button type="submit" id="resetPuzzle" style="border-radius: 7px" class="btn btn-block">Reiniciar</button>
+			<a href="relatorio.html" style="position:absolute;margin-left:155px"><img src="img/resume.png" width="20" ></a>
+    	<a href="index.html"><img src="img/turn-off.png" width="20" ></a>
+		<a href="cadastro_crianca.html"><img src="img/voltar.png" width="20" style="position:absolute;margin-left:270px"></a>
+		</div>
+    </div>
+
+	<script src="static/js/jquery-3.3.1.min.js"></script>
+	<script src="static/js/main.js"></script>
+
+</body>
+</html>
